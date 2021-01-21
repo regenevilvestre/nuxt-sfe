@@ -25,7 +25,11 @@
               class="news__list-item col-lg--4"
             >
               <CardPost :post="post">
-                <h3 slot="title" class="card-post__title" v-line-clamp="3">
+                <h3
+                  slot="title"
+                  v-line-clamp="3"
+                  class="card-post__title"
+                >
                   {{ post.title }}
                 </h3>
               </CardPost>

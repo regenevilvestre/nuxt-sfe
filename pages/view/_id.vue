@@ -118,7 +118,7 @@ export default {
     }
   },
   head () {
-    const title = this.textLimit(`${process.env.NUXT_ENV_GLOBAL_TITLE} | ${this.post.title}`)
+    const title = this.textLimit(`${process.env.NUXT_ENV_TITLE} | ${this.post.title}`)
     return {
       title,
       description: this.post.title,

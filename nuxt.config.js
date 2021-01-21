@@ -14,23 +14,23 @@ export default {
   ** See https://nuxtjs.org/api/configuration-head
   */
   head: {
-    title: 'Blog Inc.',
+    title: process.env.NUXT_ENV_TITLE,
     meta: [
       { charset: 'utf-8' },
       { lang: 'ja' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: process.env.NUXT_ENV_GLOBAL_DESCRIPTION }
+      { hid: 'description', name: 'description', content: process.env.NUXT_ENV_DESCRIPTION }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap' },
-      { rel: 'canonical', href: 'http://localhost:3000' }
+      { rel: 'canonical', href: process.env.NUXT_ENV_CANONICAL }
     ]
   },
   /*
   ** Global CSS
   */
-  css: ['./assets/scss/style.scss'],
+  css: ['./style/global.scss'],
   /*
   ** Plugins to load before mounting the App
   ** https://nuxtjs.org/guide/plugins
@@ -82,12 +82,12 @@ export default {
   },
 
   styleResources: {
-    scss: ['./assets/scss/style.scss']
+    scss: ['./style/global.scss']
   },
 
   vue: {
     config: {
-      cookieName: '_nuxt-spa'
+      cookieName: process.env.NUXT_ENV_COOKIE_NAME
     }
   }
 }

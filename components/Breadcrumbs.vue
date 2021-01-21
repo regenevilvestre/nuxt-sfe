@@ -17,7 +17,10 @@
             :to="url"
             class="breadcrumbs__link"
           >
-            <span class="breadcrumbs__text" v-line-clamp="1">
+            <span
+              v-line-clamp="1"
+              class="breadcrumbs__text"
+            >
               {{ text }}
             </span>
           </nuxt-link>

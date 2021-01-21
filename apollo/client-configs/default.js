@@ -1,10 +1,10 @@
 import { HttpLink } from 'apollo-link-http'
 import { InMemoryCache } from 'apollo-cache-inmemory'
+// const API_URL = process.env.API_URL
+//
+// console.log(process.env.API_URL.toString().length)
 
-// Replace this with your project's endpoint
-const API_URL = 'http://localhost:4000/graphql'
-
-const httpLink = new HttpLink({ uri: API_URL })
+const httpLink = new HttpLink({ uri: process.env.NUXT_ENV_API_URL })
 
 export default () => ({
   link: httpLink,

@@ -186,7 +186,7 @@ export default {
     }
   },
   head () {
-    const title = this.textLimit(`${process.env.NUXT_ENV_GLOBAL_TITLE} | Edit`)
+    const title = this.textLimit(`${process.env.NUXT_ENV_TITLE} | Edit`)
     return {
       title,
       meta: []
