@@ -1,0 +1,47 @@
+.post {
+  display: block;
+}
+.post__date {
+  font-family: $montserrat;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+}
+.post__title {
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 1.65;
+  letter-spacing: 0.1em;
+  margin-top: 30px;
+  margin-bottom: 38px;
+}
+.post__content {
+  font-size: 18px;
+  line-height: 2.3;
+  padding: 50px 0 125px;
+  border-bottom: 1px solid $color-cod-gray;
+}
+.post__image {
+  display: block;
+
+  div {
+    position: relative;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-top: 48.21%
+  }
+}
+.post__actions {
+  display: block;
+  width: 100%;
+  min-height: 120px;
+}
+.post__actions-list {
+  float: right;
+  padding-top: 65px;
+
+  .btn:not(:last-child) {
+    margin-right: 42px;
+  }
+}

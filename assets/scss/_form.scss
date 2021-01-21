@@ -1,0 +1,72 @@
+.form,
+.form__block {
+  display: block;
+  width: 100%;
+}
+.form__block,
+.form__action,
+.form__inner {
+  position: relative;
+}
+.form__message {
+  font-family: $montserrat;
+  font-size: 18px;
+  letter-spacing: 0.1em;
+
+  strong {
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+}
+.form__action {
+  float: right;
+  padding-top: 40px;
+  padding-bottom: 150px;
+}
+.form__date {
+  font-family: $montserrat;
+  font-weight: 400;
+  font-size: 20px;
+  letter-spacing: 0.2em;
+}
+//MODIFIER
+.form--login,
+.form--register {
+  .form__block {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  .form__inner {
+    padding-top: 25px;
+    padding-bottom: 0;
+  }
+  .form__action {
+    float: none;
+    padding: 25px 0 0;
+    text-align: center;
+  }
+  .form__message {
+    strong {
+      cursor: pointer;
+    }
+  }
+}
+.form--create-post, .form--edit-post {
+  .form__block {
+    &:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  .form__inner {
+    padding-top: 20px;
+    padding-bottom: 150px;
+  }
+}
+.form__message--error {
+  color: #ff0000;
+}
+.form__action--register,
+.form__action--login {
+  min-height: 106px;
+}
