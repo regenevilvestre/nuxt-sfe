@@ -1,5 +1,8 @@
 <template>
-  <div class="slide">
+  <div
+    class="slide js-slide"
+    :class="modifier"
+  >
     <div
       :style="showPlaceholder(post.image)"
       class="slide__img"
@@ -25,6 +28,10 @@ export default {
     post: {
       type: Object,
       default: () => {}
+    },
+    modifier: {
+      type: String,
+      default: ''
     }
   }
 }
@@ -72,5 +79,10 @@ export default {
   font-family: $montserrat;
   font-size: 28px;
   letter-spacing: 0.2em;
+}
+//MODIFIER
+.slide-clone {
+  position: absolute !important;
+  top: 0;
 }
 </style>

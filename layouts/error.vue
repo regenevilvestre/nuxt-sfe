@@ -34,7 +34,7 @@ export default {
   },
   head () {
     return {
-      title: `${process.env.NUXT_ENV_GLOBAL_TITLE} | ${this.error.statusCode}`,
+      title: `${process.env.NUXT_ENV_TITLE} | Error ${this.error.statusCode}`,
       meta: []
     }
   }
