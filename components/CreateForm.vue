@@ -103,7 +103,6 @@ export default {
           this.$router.push({ name: 'index' })
         }
       } else {
-        this.$logger('cancel...')
         this.$router.push({ name: 'index' })
       }
     },
@@ -123,7 +122,6 @@ export default {
           }
         })
           .then((res) => {
-            this.$logger(res)
             const params = { params: { id: res.data.addPost.id } }
             this.$router.push({ name: 'view-id', ...params })
           })

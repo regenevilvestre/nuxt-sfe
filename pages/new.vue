@@ -1,6 +1,6 @@
 <template>
   <div class="new-post">
-    <Breadcrumbs text="Create New Post" />
+    <Breadcrumbs :text="title" />
     <CreateForm />
   </div>
 </template>
@@ -15,7 +15,18 @@ export default {
     Breadcrumbs,
     CreateForm
   },
-  middleware: 'auth'
+  middleware: 'auth',
+  data () {
+    return {
+      title: 'Create New Post'
+    }
+  },
+  head () {
+    return {
+      title: `${process.env.NUXT_ENV_TITLE} | ${this.title}`,
+      meta: []
+    }
+  }
 }
 </script>
 

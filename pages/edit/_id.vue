@@ -93,6 +93,7 @@ export default {
   middleware: 'auth',
   data () {
     return {
+      title: 'Edit Post',
       edit: false,
       post: {},
       form: {
@@ -186,9 +187,8 @@ export default {
     }
   },
   head () {
-    const title = this.textLimit(`${process.env.NUXT_ENV_TITLE} | Edit`)
     return {
-      title,
+      title: this.textLimit(`${process.env.NUXT_ENV_TITLE} | ${this.title}`),
       meta: []
     }
   }

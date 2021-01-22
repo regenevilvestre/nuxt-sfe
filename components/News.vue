@@ -129,10 +129,4 @@ export default {
   padding: 0 24px;
   margin-bottom: 60px;
 }
-.card-post__title {
-  /* overflow: hidden; */
-  /* width: 100%; */
-  /* text-overflow: ellipsis; */
-  /* white-space: nowrap; */
-}
 </style>
