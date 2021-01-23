@@ -2,6 +2,7 @@
   <div
     class="slide js-slide"
     :class="modifier"
+    :style="width"
   >
     <div
       :style="showPlaceholder(post.image)"
@@ -11,7 +12,7 @@
       <a
         :href="`/view/${post.id}`"
         class="slide__link"
-      >
+      ><!-- eslint-disable-next-line -->
         <span class="slide__title" v-html="post.title" />
       </a>
       <time class="slide__date" datetime="post.createdAt | format_datetime">{{ post.createdAt | format_date }}</time>
@@ -30,6 +31,10 @@ export default {
       default: () => {}
     },
     modifier: {
+      type: String,
+      default: ''
+    },
+    width: {
       type: String,
       default: ''
     }

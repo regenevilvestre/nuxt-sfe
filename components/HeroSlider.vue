@@ -9,7 +9,12 @@
     </button>
 
     <div id="js-slider-track" class="hero-slider__track">
-      <Slide v-for="(post, i) in posts" :key="i" :post="post" :index="i" />
+      <Slide
+        v-for="(post, i) in posts"
+        :key="i"
+        :post="post"
+        :data-index="i"
+      />
     </div>
 
     <button
@@ -24,7 +29,7 @@
       <li v-for="(item, i) in posts.length" :key="i">
         <span
           :class="{ 'is-active': i === getSlider.active }"
-          :index="i"
+          :data-index="i"
           class="hero-slider__dot"
           @click="goToSlide($event)"
         />
@@ -37,7 +42,7 @@
 import Slide from '../components/Slide'
 const EASINGS = {
   EASEOUTEXPO: 'transform 600ms cubic-bezier(0.16, 1, 0.3, 1)',
-  EASEOUTQUINT: 'transform 0.6s cubic-bezier(0.22, 1, 0.36, 1)'
+  EASEOUTQUINT: 'transform 600ms cubic-bezier(0.22, 1, 0.36, 1)'
 }
 
 export default {
@@ -55,8 +60,9 @@ export default {
     return {
       slider: {
         active: 0,
-        limit: 3,
+        slidesToShow: 3,
         easing: EASINGS.EASEOUTQUINT,
+        slides: [],
         position: 0,
         track: null,
         target: null,
@@ -74,58 +80,38 @@ export default {
   },
   methods: {
     init () {
-      this.slider.limit = this.posts.length
       this.slider.target = document.querySelector('#js-slider')
       this.slider.track = document.querySelector('#js-slider-track')
       this.slider.width = this.slider.target.offsetWidth
-
-      this.slider.track.style.transform = `translate3d(-${this.slider.position}px, 0, 0)`
-    },
-    getDirection (idx) {
-      if (this.getSlider.active < idx) {
-        return {
-          direction: 'next',
-          skip: (idx - this.getSlider.active) > 1,
-          offset: idx - this.getSlider.active
-        }
-      } else {
-        return {
-          skip: (this.getSlider.active - idx) > 1,
-          direction: 'prev',
-          offset: this.getSlider.active - idx
-        }
-      }
+      this.slider.track.style.transform = 'translate3d(0, 0, 0)'
     },
     goToSlide (e, direction = '') {
       this.slider.track.style.transition = this.slider.easing
-      const obj = this.getDirection(parseInt(e.target.getAttribute('index')))
-
-      if (direction === '') {
-        direction = obj.direction
-      }
 
       switch (direction) {
         case 'prev': {
-          this.$logger(`prev ${obj.skip} ${obj.offset} ${e.target.getAttribute('index')}`)
-          this.slider.track.style.transform = `
-            translate3d(-${this.getSlider.position - this.getSlider.width}px, 0, 0)
-          `
-          this.slider.position = this.getSlider.position - this.getSlider.width
           this.slider.active--
-
+          this.slider.track.style.transform = `translate3d(-${this.slider.width * this.getSlider.active}px, 0, 0)`
           break
         }
         case 'next': {
-          this.$logger(`next ${obj.skip} ${obj.offset} ${e.target.getAttribute('index')}`)
-          this.slider.track.style.transform = `
-            translate3d(-${this.getSlider.position + this.getSlider.width}px, 0, 0)
-          `
-          this.slider.position = this.getSlider.position + this.getSlider.width
           this.slider.active++
+          this.slider.track.style.transform = `translate3d(-${this.slider.width * this.getSlider.active}px, 0, 0)`
+          break
+        }
+        default: {
+          const idx = parseInt(e.target.getAttribute('data-index'))
 
+          this.slider.classList.add('is-animated')
+          this.slider.track.style.transform = `translate3d(-${this.getSlider.width * idx}px, 0, 0)`
+          this.slider.active = idx
           break
         }
       }
+
+      setTimeout(() => {
+        this.slider.track.style.transition = ''
+      }, 600)
     }
   }
 }
