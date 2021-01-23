@@ -63,7 +63,6 @@ export default {
         slidesToShow: 3,
         easing: EASINGS.EASEOUTQUINT,
         slides: [],
-        position: 0,
         track: null,
         target: null,
         width: 0
@@ -102,7 +101,6 @@ export default {
         default: {
           const idx = parseInt(e.target.getAttribute('data-index'))
 
-          this.slider.classList.add('is-animated')
           this.slider.track.style.transform = `translate3d(-${this.getSlider.width * idx}px, 0, 0)`
           this.slider.active = idx
           break
