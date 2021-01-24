@@ -56,7 +56,8 @@
         v-if="invalid"
         class="form__message form__message--register form__message--error"
       >
-        Email is already taken
+        Invalid/email is already taken.<br>
+        Please try again
       </p>
     </div>
   </form>
@@ -139,7 +140,6 @@ export default {
       e.preventDefault()
 
       if (!this.$v.$invalid) {
-        this.$logger('submit...')
         this.$apollo.mutate({
           mutation: REGISTER,
           variables: {

@@ -46,7 +46,8 @@
         v-if="invalid"
         class="form__message form__message--error"
       >
-        Incorrect Email or Password
+        Email/Password is invalid.<br>
+        Please try again
       </p>
     </div>
   </form>
