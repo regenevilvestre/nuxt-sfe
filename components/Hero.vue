@@ -27,6 +27,7 @@ export default {
   apollo: {
     posts: {
       query: GET_PAGINATED_POSTS,
+      fetchPolicy: 'no-cache',
       variables: {
         pagination: {
           limit: 3,
