@@ -2,6 +2,7 @@
   <footer class="footer">
     <div class="footer__top">
       <div class="container">
+        <ScrollTop />
         <Logo />
         <p class="footer__text">
           サンプルテキストサンプル ルテキストサンプルテキストサ<br>
@@ -20,10 +21,13 @@
 
 <script>
 import Logo from '../components/Logo'
+import ScrollTop from '../components/ScrollTop'
+
 export default {
   name: 'AppFooter',
   components: {
-    Logo
+    Logo,
+    ScrollTop
   }
 }
 </script>

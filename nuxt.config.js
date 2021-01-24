@@ -41,7 +41,8 @@ export default {
     '~/plugins/logger.js',
     '~/plugins/vuelidate.js',
     '~/plugins/vue2filters.js',
-    { src: '~/plugins/vue-line-clamp.js', mode: 'client' }
+    { src: '~/plugins/vue-line-clamp.js', mode: 'client' },
+    { src: '~/plugins/smooth-scroll.js', mode: 'client' }
   ],
   /*
   ** Auto import components
