@@ -83,6 +83,21 @@ export default {
       this.slider.track = document.querySelector('#js-slider-track')
       this.slider.width = this.slider.target.offsetWidth
       this.slider.track.style.transform = 'translate3d(0, 0, 0)'
+
+      if (process.client) {
+        let id
+        const updateSlider = this.updateSlider
+
+        window.addEventListener('resize', function () {
+          clearTimeout(id)
+          id = setTimeout(updateSlider, 100)
+        })
+      }
+    },
+    removeTransition () {
+      setTimeout(() => {
+        this.slider.track.style.transition = ''
+      }, 600)
     },
     goToSlide (e, direction = '') {
       this.slider.track.style.transition = this.slider.easing
@@ -107,9 +122,13 @@ export default {
         }
       }
 
-      setTimeout(() => {
-        this.slider.track.style.transition = ''
-      }, 600)
+      this.removeTransition()
+    },
+    updateSlider () {
+      this.slider.width = this.slider.track.offsetWidth
+      this.slider.track.style.transform = `translate3d(-${this.slider.width * this.getSlider.active}px, 0, 0)`
+      this.slider.track.style.transition = this.slider.easing
+      this.removeTransition()
     }
   }
 }
