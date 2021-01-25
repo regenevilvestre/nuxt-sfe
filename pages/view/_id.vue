@@ -13,7 +13,7 @@
         </div>
       </div>
 
-      <time class="post__date" :datetime="post.date | format_datetime">{{ post.createdAt | format_date }}</time>
+      <time class="post__date" :datetime="post.createdAt | format_datetime">{{ post.createdAt | format_date }}</time>
 
       <h1 class="post__title">
         {{ post.title }}
