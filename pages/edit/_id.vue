@@ -55,6 +55,7 @@
 <script>
 import { required } from 'vuelidate/lib/validators'
 import { mapState } from 'vuex'
+import _ from 'lodash'
 import { GET_POST, UPDATE_POST } from '../../graphql'
 import Button from '../../components/Button'
 import Breadcrumbs from '../../components/Breadcrumbs'
@@ -141,16 +142,29 @@ export default {
     getPostId () {
       return this.$route.params.id
     },
-    goto (id) {
-      const params = { params: { id } }
-      this.$router.push({ name: 'edit-id', ...params })
-    },
     cancel (e) {
-      const confirm = window.confirm('Are your sure you want cancel & discard changes?')
-      if (confirm) {
-        this.edit = false
-        this.$router.push({ name: 'index' })
+      const hasChanges = [
+        _.isEqual(this.post.title, this.getForm.title),
+        _.isEqual(this.post.content, this.getForm.content),
+        _.isEqual(this.post.image, this.getForm.image)
+      ].some(item => item === false)
+
+      if (process.client && hasChanges) {
+        const confirm = window.confirm('Are your sure you want cancel & discard changes?')
+
+        if (confirm) {
+          this.redirect()
+        }
+      } else {
+        this.redirect()
       }
+    },
+    redirect () {
+      this.edit = false
+      this.$router.push({
+        name: 'view-id',
+        ...{ params: { id: this.getForm.id } }
+      })
     },
     selectImage (e) {
       this.form.image = e[1]
@@ -181,7 +195,7 @@ export default {
             this.$router.push({ name: 'view-id', ...params })
           })
           .catch((err) => {
-            this.$logger(err)
+            this.$logger(`${err}`)
           })
       }
     }

@@ -17,7 +17,7 @@
                 <Button modifier="btn--basic" text="Cancel" @click.native="cancel($event)" />
               </div>
             </div>
-            <time class="form__date" :datetime="new Date() | format_datetime">{{ new Date() | format_date }}</time>
+            <time class="form__date" :datetime="getDate.datetimeStr">{{ getDate.dateStr }}</time>
           </div>
 
           <div class="form__block">
@@ -53,6 +53,7 @@
 <script>
 import { mapState } from 'vuex'
 import _ from 'lodash'
+import moment from 'moment'
 import { required } from 'vuelidate/lib/validators'
 import { ADD_POST } from '../graphql'
 import Textarea from './Textarea'
@@ -76,6 +77,12 @@ export default {
   },
   computed: {
     ...mapState(['isAuth', 'token']),
+    getDate () {
+      return {
+        dateStr: moment(new Date()).format('YYYY.MM.DD'),
+        datetimeStr: moment(new Date()).format('YYYY-MM-DD')
+      }
+    },
     getForm () { return this.form }
   },
   watch: {
@@ -97,8 +104,15 @@ export default {
       this.form.image = e[1]
     },
     cancel (e) {
-      if (!_.isEmpty(this.getForm.title) || !_.isEmpty(this.getForm.content) || !_.isEmpty(this.getForm.image)) {
+      const hasChanges = [
+        _.isEmpty(this.getForm.title),
+        _.isEmpty(this.getForm.content),
+        _.isEmpty(this.getForm.image)
+      ].some(item => item === false)
+
+      if (process.client && hasChanges) {
         const confirm = window.confirm('Are your sure you want cancel & discard changes?')
+
         if (confirm) {
           this.$router.push({ name: 'index' })
         }
