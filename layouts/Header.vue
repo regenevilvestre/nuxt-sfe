@@ -67,5 +67,6 @@ export default {
 }
 .header__right {
   float: right;
+  padding-top: 8px;
 }
 </style>
