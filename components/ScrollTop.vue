@@ -30,7 +30,7 @@ export default {
   display: inline;
   position: absolute;
   bottom: -83px;
-  right: 0;
+  right: 40px;
 }
 .scroll-top__btn {
   display: inline-block;
