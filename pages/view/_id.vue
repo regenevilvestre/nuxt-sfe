@@ -76,7 +76,7 @@ export default {
   validate ({ params }) {
     return /^\d+$/.test(params.id)
   },
-  async fetch (init = false) {
+  async fetch () {
     await this.$apollo.query({
       query: GET_POST,
       fetchPolicy: 'no-cache',
@@ -86,6 +86,11 @@ export default {
     })
       .then((res) => {
         this.post = { ...res.data.post }
+      })
+      .catch((err) => {
+        if (err) {
+          return this.$nuxt.error(err)
+        }
       })
   },
   data () {
@@ -100,17 +105,8 @@ export default {
     })
   },
   methods: {
-    async refetch () {
-      await this.$apollo.query({
-        query: GET_POST,
-        fetchPolicy: 'no-cache',
-        variables: {
-          id: parseInt(this.$route.params.id)
-        }
-      })
-        .then((res) => {
-          this.post = { ...res.data.post }
-        })
+    refetch () {
+      this.$fetch()
     },
     goto (id) {
       const params = { params: { id } }

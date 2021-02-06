@@ -12,8 +12,10 @@
       <a
         :href="`/view/${post.id}`"
         class="slide__link"
-      ><!-- eslint-disable-next-line -->
-        <span class="slide__title" v-html="post.title" />
+      >
+        <div class="slide__title">
+          {{ post.title }}
+        </div>
       </a>
       <time class="slide__date" datetime="post.createdAt | format_datetime">{{ post.createdAt | format_date }}</time>
     </div>
