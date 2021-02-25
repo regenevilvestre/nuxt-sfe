@@ -20,8 +20,8 @@
 </template>
 
 <script>
-import Logo from '../components/Logo'
-import ScrollTop from '../components/ScrollTop'
+import Logo from '@/components/Logo'
+import ScrollTop from '@/components/ScrollTop'
 
 export default {
   name: 'AppFooter',

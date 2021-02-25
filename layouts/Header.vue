@@ -31,8 +31,8 @@
 
 <script>
 import { mapState } from 'vuex'
-import Button from '../components/Button'
-import Logo from '../components/Logo'
+import Button from '@/components/Button'
+import Logo from '@/components/Logo'
 
 export default {
   name: 'AppHeader',

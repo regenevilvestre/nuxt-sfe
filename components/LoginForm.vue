@@ -55,9 +55,9 @@
 
 <script>
 import { email, required } from 'vuelidate/lib/validators'
-import { AUTHENTICATE } from '../graphql'
-import Button from './Button'
-import Input from './Input'
+import { AUTHENTICATE } from '@/graphql'
+import Button from '@/components/Button'
+import Input from '@/components/Input'
 
 export default {
   name: 'LoginForm',

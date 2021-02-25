@@ -59,18 +59,20 @@
 
 <script>
 import { mapState, mapGetters } from 'vuex'
-import { GET_POST } from '../../graphql'
-import mixins from '../../plugins/mixins'
-import Comment from '../../components/Comment'
-import CommentForm from '../../components/CommentForm'
-import Breadcrumbs from '../../components/Breadcrumbs'
+import { GET_POST } from '@/graphql'
+import mixins from '@/plugins/mixins'
+import Comment from '@/components/Comment'
+import CommentForm from '@/components/CommentForm'
+import Breadcrumbs from '@/components/Breadcrumbs'
+import Button from '@/components/Button'
 
 export default {
   name: 'Id',
   components: {
     Comment,
     CommentForm,
-    Breadcrumbs
+    Breadcrumbs,
+    Button
   },
   mixins: [mixins],
   validate ({ params }) {

@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Hero from '../components/Hero'
-import News from '../components/News'
+import Hero from '@/components/Hero'
+import News from '@/components/News'
 
 export default {
   name: 'Index',

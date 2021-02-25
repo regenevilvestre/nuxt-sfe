@@ -65,9 +65,9 @@
 
 <script>
 import { email, required, sameAs } from 'vuelidate/lib/validators'
-import { AUTHENTICATE, REGISTER } from '../graphql'
-import Button from './Button'
-import Input from './Input'
+import { AUTHENTICATE, REGISTER } from '@/graphql'
+import Button from '@/components/Button'
+import Input from '@/components/Input'
 
 export default {
   name: 'RegisterForm',

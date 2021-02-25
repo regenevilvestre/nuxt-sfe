@@ -47,9 +47,9 @@
 
 <script>
 import { mapState } from 'vuex'
-import { GET_PAGINATED_POSTS } from '../graphql'
-import Button from '../components/Button'
-import CardPost from '../components/CardPost'
+import { GET_PAGINATED_POSTS } from '@/graphql'
+import Button from '@/components/Button'
+import CardPost from '@/components/CardPost'
 
 export default {
   name: 'News',

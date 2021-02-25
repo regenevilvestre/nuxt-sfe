@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import Breadcrumbs from '../components/Breadcrumbs'
-import mixins from '../plugins/mixins'
+import Breadcrumbs from '@/components/Breadcrumbs'
+import mixins from '@/plugins/mixins'
 
 export default {
   name: 'Error',

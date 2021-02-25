@@ -55,9 +55,9 @@ import { mapState } from 'vuex'
 import _ from 'lodash'
 import moment from 'moment'
 import { required } from 'vuelidate/lib/validators'
-import { ADD_POST } from '../graphql'
-import Textarea from './Textarea'
-import ImageUpload from './ImageUpload'
+import { ADD_POST } from '@/graphql'
+import Textarea from '@/components/Textarea'
+import ImageUpload from '@/components/ImageUpload'
 
 export default {
   name: 'CreatePost',

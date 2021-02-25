@@ -39,11 +39,11 @@
 
 <script>
 import { mapState } from 'vuex'
-import LoginForm from '../components/LoginForm'
-import RegisterForm from '../components/RegisterForm'
-import Header from './Header'
-import Footer from './Footer'
-import Modal from './Modal'
+import LoginForm from '@/components/LoginForm'
+import RegisterForm from '@/components/RegisterForm'
+import Header from '@/layouts/Header'
+import Footer from '@/layouts/Footer'
+import Modal from '@/layouts/Modal'
 
 export default {
   name: 'DefaultLayout',

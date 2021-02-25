@@ -6,8 +6,8 @@
 </template>
 
 <script>
-import Breadcrumbs from '../components/Breadcrumbs'
-import CreateForm from '../components/CreateForm'
+import Breadcrumbs from '@/components/Breadcrumbs'
+import CreateForm from '@/components/CreateForm'
 
 export default {
   name: 'NewPost',

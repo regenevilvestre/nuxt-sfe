@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import Slide from '../components/Slide'
+import Slide from '@/components/Slide'
 const EASINGS = {
   EASEOUTEXPO: 'transform 600ms cubic-bezier(0.16, 1, 0.3, 1)',
   EASEOUTQUINT: 'transform 600ms cubic-bezier(0.22, 1, 0.36, 1)'

@@ -20,7 +20,6 @@ export default {
     color: { type: String, default: 'light' }
   }
 }
-
 </script>
 
 <style lang="scss">

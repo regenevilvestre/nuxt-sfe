@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { GET_PAGINATED_POSTS } from '../graphql'
-import HeroSlider from '../components/HeroSlider'
+import { GET_PAGINATED_POSTS } from '@/graphql'
+import HeroSlider from '@/components/HeroSlider'
 
 export default {
   name: 'Hero',

@@ -29,9 +29,9 @@
 </template>
 
 <script>
-import { ADD_COMMENT } from '../graphql'
-import Textarea from './Textarea'
-import Button from './Button'
+import { ADD_COMMENT } from '@/graphql'
+import Textarea from '@/components/Textarea'
+import Button from '@/components/Button'
 
 export default {
   name: 'CommentForm',

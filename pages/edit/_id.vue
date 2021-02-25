@@ -56,13 +56,13 @@
 import { required } from 'vuelidate/lib/validators'
 import { mapState } from 'vuex'
 import _ from 'lodash'
-import { GET_POST, UPDATE_POST } from '../../graphql'
-import Button from '../../components/Button'
-import Breadcrumbs from '../../components/Breadcrumbs'
-import CommentForm from '../../components/CommentForm'
-import Textarea from '../../components/Textarea'
-import ImageUpload from '../../components/ImageUpload'
-import mixins from '../../plugins/mixins'
+import { GET_POST, UPDATE_POST } from '@/graphql'
+import Button from '@/components/Button'
+import Breadcrumbs from '@/components/Breadcrumbs'
+import CommentForm from '@/components/CommentForm'
+import Textarea from '@/components/Textarea'
+import ImageUpload from '@/components/ImageUpload'
+import mixins from '@/plugins/mixins'
 
 export default {
   name: 'UpdatePost',

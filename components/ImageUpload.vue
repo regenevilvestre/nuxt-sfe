@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import mixins from '../plugins/mixins'
+import mixins from '@/plugins/mixins'
 
 export default {
   name: 'ImageUpload',
